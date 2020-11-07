@@ -1,0 +1,1 @@
+print("greater") unless (2 < 1)
