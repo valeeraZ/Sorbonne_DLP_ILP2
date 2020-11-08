@@ -6,10 +6,12 @@ import com.paracamplus.ilp1.compiler.interfaces.IOperatorEnvironment;
 import com.paracamplus.ilp1.compiler.optimizer.IdentityOptimizer;
 import com.paracamplus.ilp1.compiler.test.CompilerRunner;
 import com.paracamplus.ilp1.parser.xml.IXMLParser;
-import com.paracamplus.ilp2.ast.ASTfactory;
+
 import com.paracamplus.ilp2.compiler.Compiler;
+import com.paracamplus.ilp2.ilp2tme4.ast.ASTfactory;
+import com.paracamplus.ilp2.ilp2tme4.interfaces.IASTfactory;
 import com.paracamplus.ilp2.ilp2tme4.parser.ilpml.ILPMLParser;
-import com.paracamplus.ilp2.interfaces.IASTfactory;
+
 
 import com.paracamplus.ilp2.parser.xml.XMLParser;
 import org.junit.runners.Parameterized;

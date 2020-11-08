@@ -2,12 +2,12 @@ package com.paracamplus.ilp2.ilp2tme4.parser.ilpml;
 
 import antlr4.ILPMLgrammar2tme4Parser.*;
 import antlr4.ILPMLgrammar2tme4Listener;
-import com.paracamplus.ilp1.ast.ASTexpression;
 import com.paracamplus.ilp1.interfaces.IASTblock;
 import com.paracamplus.ilp1.interfaces.IASTexpression;
 import com.paracamplus.ilp1.interfaces.IASTvariable;
+import com.paracamplus.ilp2.ilp2tme4.interfaces.IASTfactory;
 import com.paracamplus.ilp2.interfaces.IASTdeclaration;
-import com.paracamplus.ilp2.interfaces.IASTfactory;
+
 import com.paracamplus.ilp2.interfaces.IASTfunctionDefinition;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.Token;
@@ -130,13 +130,10 @@ public class ILPMLListener implements ILPMLgrammar2tme4Listener {
     @Override
     public void enterUnless(UnlessContext ctx) {}
 
-    /* Méthode 1: traduire unless en if  */
+    /* Méthode 2  */
     @Override
     public void exitUnless(UnlessContext ctx) {
-		ctx.node = factory.newAlternative(
-				ctx.condition.node,
-				factory.newBooleanConstant("false"),
-				ctx.body.node);
+		ctx.node = factory.newUnless(ctx.condition.node, ctx.body.node);
     }
 
 
