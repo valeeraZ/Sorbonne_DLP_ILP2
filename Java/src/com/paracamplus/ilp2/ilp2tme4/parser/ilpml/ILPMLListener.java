@@ -135,7 +135,7 @@ public class ILPMLListener implements ILPMLgrammar2tme4Listener {
     public void exitUnless(UnlessContext ctx) {
 		ctx.node = factory.newAlternative(
 				ctx.condition.node,
-				factory.newBooleanConstant("true"),
+				factory.newBooleanConstant("false"),
 				ctx.body.node);
     }
 
