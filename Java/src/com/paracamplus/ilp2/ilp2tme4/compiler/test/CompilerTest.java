@@ -7,7 +7,7 @@ import com.paracamplus.ilp1.compiler.optimizer.IdentityOptimizer;
 import com.paracamplus.ilp1.compiler.test.CompilerRunner;
 import com.paracamplus.ilp1.parser.xml.IXMLParser;
 
-import com.paracamplus.ilp2.compiler.Compiler;
+import com.paracamplus.ilp2.ilp2tme4.compiler.Compiler;
 import com.paracamplus.ilp2.ilp2tme4.ast.ASTfactory;
 import com.paracamplus.ilp2.ilp2tme4.interfaces.IASTfactory;
 import com.paracamplus.ilp2.ilp2tme4.parser.ilpml.ILPMLParser;
@@ -41,7 +41,7 @@ public class CompilerTest extends com.paracamplus.ilp2.compiler.test.CompilerTes
         OperatorStuff.fillBinaryOperators(ioe);
         IGlobalVariableEnvironment gve = new GlobalVariableEnvironment();
         GlobalVariableStuff.fillGlobalVariables(gve);
-        com.paracamplus.ilp2.compiler.Compiler compiler = new Compiler(ioe, gve);
+        Compiler compiler = new Compiler(ioe, gve);
         compiler.setOptimizer(new IdentityOptimizer());
         run.setCompiler(compiler);
 

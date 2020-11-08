@@ -31,7 +31,7 @@ public class ILPMLParser extends com.paracamplus.ilp2.parser.ilpml.ILPMLParser {
             ParseTreeWalker walker = new ParseTreeWalker();
             ILPMLListener extractor = new ILPMLListener((IASTfactory) factory);
             walker.walk(extractor, tree);
-            return new TransformeUnless().visit(tree.node);
+            return tree.node;
         } catch (Exception e) {
             throw new ParseException(e);
         }
