@@ -35,3 +35,13 @@ TME4:
   artifacts:
     reports:
       junit: report.xml
+
+TME5:
+  stage: tme
+  script: >
+    /home/dlp/run.sh -id TME4 -name TME5
+    com.paracamplus.ilp2.ilp2tme5.interpreter.test.InterpreterTest
+    com.paracamplus.ilp2.ilp2tme5.compiler.test.CompilerTest
+  artifacts:
+    reports:
+      junit: report.xml
