@@ -14,6 +14,8 @@ import com.paracamplus.ilp2.interfaces.IASTprogram;
 public class Interpreter extends com.paracamplus.ilp2.interpreter.Interpreter
         implements IASTvisitor<Object, ILexicalEnvironment, EvaluationException> {
 
+    protected int nbWhile = 0;
+
     public Interpreter(IGlobalVariableEnvironment globalVariableEnvironment, IOperatorEnvironment operatorEnvironment) {
         super(globalVariableEnvironment, operatorEnvironment);
     }
@@ -47,24 +49,38 @@ public class Interpreter extends com.paracamplus.ilp2.interpreter.Interpreter
                     break;
                 }
             }
+            nbWhile++;
             try {
                 iast.getBody().accept(this, lexenv);
             } catch (BreakException e){
+                nbWhile--;
                 break;
             } catch (ContinueException e){
+                nbWhile--;
                 continue;
             }
+            nbWhile--;
         }
         return Boolean.FALSE;
     }
 
     @Override
     public Object visit(IASTbreak iast, ILexicalEnvironment iLexicalEnvironment) throws EvaluationException {
-        throw new BreakException("break");
+        if (nbWhile < 1) {
+            throw new EvaluationException("The keyword break is not in a loop");
+        }else {
+            throw new BreakException("break");
+        }
+
     }
 
     @Override
     public Object visit(IASTcontinue iast, ILexicalEnvironment iLexicalEnvironment) throws EvaluationException {
-        throw new ContinueException("continue");
+        if (nbWhile < 1) {
+            throw new EvaluationException("The keyword continue is not in a loop");
+        }else {
+            throw new ContinueException("continue");
+        }
+
     }
 }
