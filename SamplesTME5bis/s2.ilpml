@@ -1,0 +1,8 @@
+(i = 5;
+b1: while i <= 10 do(
+        (i = i + 1);
+        (if i = 10 then (i = 20); (continue b1); );
+        (i = i + 2);
+    )
+i;
+)

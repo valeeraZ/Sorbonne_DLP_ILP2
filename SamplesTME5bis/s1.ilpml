@@ -1,0 +1,8 @@
+let i = 5 and j = 4 in(
+    (
+    b1: while i <= 10 do
+    b2: while j <= i do
+            if i+j >= 19 then break b1 else (i = i + 1; j = j + 1;)
+    );
+    (x = i+j);
+)
