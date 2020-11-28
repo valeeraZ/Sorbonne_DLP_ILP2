@@ -16,3 +16,6 @@ Java/bin
 *.iml
 /out/
 /SamplesUnless/*.c
+/.vscode/
+.project
+.classpath
