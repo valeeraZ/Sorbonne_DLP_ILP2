@@ -37,7 +37,7 @@ public class ILPMLOptimizingParser extends ILPMLParser {
             ILPMLListener extractor = new ILPMLListener((IASTfactory) factory);
             walker.walk(extractor, tree);
             CopyTransform<Void> transform = new CopyTransform<>((IASTfactory) factory);
-            return transform.visit(tree.node, null);
+            return (IASTprogram) transform.visit(tree.node, null);
         } catch (Exception e) {
             throw new ParseException(e);
         }
