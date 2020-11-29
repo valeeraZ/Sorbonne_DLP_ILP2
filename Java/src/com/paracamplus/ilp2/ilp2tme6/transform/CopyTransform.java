@@ -79,7 +79,7 @@ public class CopyTransform<Data> implements IASTvisitor<IAST, Data, CompilationE
         IASTbinding[] bindings = new IASTbinding[length];
         for(int i = 0; i < length; i++){
             bindings[i] = factory.newBinding(
-                    iast.getBindings()[i].getVariable(),
+                    (IASTvariable) iast.getBindings()[i].getVariable().accept(this, data),
                     (IASTexpression) iast.getBindings()[i].getInitialisation().accept(this, data));
         }
         return factory.newBlock(
@@ -145,7 +145,7 @@ public class CopyTransform<Data> implements IASTvisitor<IAST, Data, CompilationE
     @Override
     public IAST visit(IASTassignment iast, Data data) throws CompilationException {
         return factory.newAssignment(
-                iast.getVariable(),
+                (IASTvariable) iast.getVariable().accept(this,data),
                 (IASTexpression) iast.getExpression().accept(this, data));
     }
 
