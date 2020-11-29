@@ -23,7 +23,7 @@ import com.paracamplus.ilp2.ilp2tme6.parser.ilpml.ILPMLOptimizingParser;
 import com.paracamplus.ilp2.parser.xml.XMLParser;
 
 public class CompilerTest extends com.paracamplus.ilp2.compiler.test.CompilerTest {
-    protected static String[] samplesDirName = { "SamplesILP1", "SamplesILP2", "SamplesTME6" };
+    protected static String[] samplesDirName = { "SamplesILP1", "SamplesILP2", "SamplesTME6", "SamplesTME6/InlineTransform" };
     
     public CompilerTest(final File file) {
     	super(file);

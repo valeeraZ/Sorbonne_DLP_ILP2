@@ -19,3 +19,4 @@ Java/bin
 /.vscode/
 .project
 .classpath
+/Samples*/*/*.c

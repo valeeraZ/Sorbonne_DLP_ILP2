@@ -22,7 +22,7 @@ import java.io.StringWriter;
 import java.util.Collection;
 
 public class InterpreterTest extends com.paracamplus.ilp2.interpreter.test.InterpreterTest {
-    protected static String[] samplesDirName = { "SamplesILP1" , "SamplesILP2", "SamplesTME6"};
+    protected static String[] samplesDirName = { "SamplesILP1" , "SamplesILP2", "SamplesTME6", "SamplesTME6/InlineTransform"};
 
     public InterpreterTest(File file) {
         super(file);

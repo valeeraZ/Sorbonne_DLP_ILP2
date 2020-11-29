@@ -1,0 +1,7 @@
+function pow(x,n) ( if n == 0 then 1 else x * pow(x, n-1) );
+
+function doubleCube(x)
+( 2 * pow(x,3) );
+
+doubleCube(5);
+

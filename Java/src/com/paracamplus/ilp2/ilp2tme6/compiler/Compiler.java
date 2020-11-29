@@ -7,6 +7,7 @@ import com.paracamplus.ilp2.compiler.interfaces.IASTCprogram;
 import com.paracamplus.ilp2.compiler.normalizer.INormalizationFactory;
 import com.paracamplus.ilp2.compiler.normalizer.NormalizationFactory;
 import com.paracamplus.ilp2.compiler.normalizer.Normalizer;
+import com.paracamplus.ilp2.ilp2tme6.transform.InlineTransform;
 import com.paracamplus.ilp2.ilp2tme6.transform.RenameTransform;
 import com.paracamplus.ilp2.interfaces.IASTprogram;
 import com.paracamplus.ilp2.interfaces.IASTfactory;
@@ -16,14 +17,16 @@ import com.paracamplus.ilp2.ast.ASTfactory;
 
 public class Compiler extends com.paracamplus.ilp2.compiler.Compiler {
 
-    protected RenameTransform renameTransform;
+    //protected RenameTransform renameTransform;
+    protected InlineTransform inlineTransform;
     protected IASTfactory factory;
     protected INormalizationEnvironment env;
 
     public Compiler(IOperatorEnvironment ioe, IGlobalVariableEnvironment igve) {
         super(ioe, igve);
         factory = new ASTfactory();
-        renameTransform = new RenameTransform(factory);
+        //renameTransform = new RenameTransform(factory);
+        inlineTransform = new InlineTransform(factory);
         env = NormalizationEnvironment.EMPTY; 
     }
 
@@ -33,7 +36,8 @@ public class Compiler extends com.paracamplus.ilp2.compiler.Compiler {
         INormalizationFactory nf = new NormalizationFactory();
         Normalizer normalizer = new Normalizer(nf);
         
-        program = (IASTprogram) renameTransform.visit(program, env);
+        //program = (IASTprogram) renameTransform.visit(program, env);
+        program = (IASTprogram) inlineTransform.visit(program,env);
         IASTCprogram newprogram = normalizer.transform(program);
         return newprogram;
     }
