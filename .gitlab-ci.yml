@@ -62,6 +62,7 @@ TME6:
     /home/dlp/run.sh -id TME6 -name TME6
     com.paracamplus.ilp2.ilp2tme6.interpreter.test.InterpreterTest
     com.paracamplus.ilp2.ilp2tme6.compiler.test.CompilerTest
+    com.paracamplus.ilp2.ilp2tme6.transform.Test.CallAnalysisTest
   artifacts:
     reports:
       junit: report.xml

@@ -1,0 +1,4 @@
+function pow(x,n) ( if n < 0 then 1 else x * pow(x, n-1) );
+
+let i = 2 and j = 2 in
+    pow(i,j);

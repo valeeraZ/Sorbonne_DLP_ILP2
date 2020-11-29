@@ -1,0 +1,8 @@
+function isOdd(n) ( !isEven(n) );
+
+function isEven(n) ( if n == 0 then true else return isOdd( moins(n) ) );
+
+function moins(n) ( n-1 );
+
+let z = 10 in
+    isEven(z);
